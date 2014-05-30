@@ -6,6 +6,8 @@ through SSH and expose its SOAP WebService (vboxwebsrv) on your machine.
 This is particularly intended for use with the [clue/phpvirtualbox](https://github.com/clue/docker-phpvirtualbox)
 docker image.
 
+![](https://cloud.githubusercontent.com/assets/776829/3137332/d8500a54-e850-11e3-921d-479d43c9c80a.png)
+
 ## Usage
 
 This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/clue/vboxwebsrv/).
