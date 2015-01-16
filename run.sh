@@ -7,5 +7,5 @@ if [[ "${PORT:-0}" = "0" ]]; then
   PORT=5678
 fi
 
-ssh -L 0.0.0.0:18083:localhost:$PORT $1 "killall vboxwebsrv; vboxwebsrv -p $PORT -A null"
+ssh -L 0.0.0.0:18083:localhost:$PORT $1 "killall vboxwebsrv; vboxwebsrv -p $PORT -A null -b"
 
