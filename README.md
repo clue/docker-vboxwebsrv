@@ -27,7 +27,6 @@ The host `10.1.2.3` is your computer that VirtualBox is installed on.
 
 To establish an encrypted SSH connection it will use the privatekey `id_rsa`.
 Make sure you can connect to the server with the given key before running the container. If it asks for password, you have done something wrong.
-This is the user that runs your virtual machines (VMs).
 
 Once connected, it will launch a temporary instance of the  `vboxwebsrv` program that comes with VirtualBox.
 This will be exposed through the SSH tunnel to your docker container and will terminate when your container
