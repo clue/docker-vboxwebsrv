@@ -1,4 +1,6 @@
 # docker-vboxwebsrv
+FORKED BY VEGARDSAGLIEN
+The fork makes the container use an ssh-key instead of asking for password, making it non-interactive.
 
 This is a minimal [docker](https://www.docker.io) image that allows you to connect to a computer running VirtualBox
 through SSH and expose its SOAP WebService (vboxwebsrv) on your machine.
@@ -10,20 +12,21 @@ docker image.
 
 ## Usage
 
-This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/clue/vboxwebsrv/).
+This docker image is available as a [trusted build on the docker index](https://index.docker.io/u/vegardsaglien/vboxwebsrv/).
 Using this image for the first time will start a download automatically.
 Further runs will be immediate, as the image will be cached locally.
 
 The recommended way to run this container looks like this:
 
 ```bash
-$ docker run -it --name=vb1 clue/vboxwebsrv vbox@10.1.2.3
+$ docker run -d --name=vb1 -v /root/.ssh/id_rsa:/root/.ssh/id_rsa vegardsaglien/vboxwebsrv vbox@10.1.2.3
 ```
 
-This will start an interactive container that will establish a connection to the given host.
+This will start a container that will establish a connection to the given host.
 The host `10.1.2.3` is your computer that VirtualBox is installed on.
 
-To establish an encrypted SSH connection it will likely ask for your password for user `vbox`.
+To establish an encrypted SSH connection it will use the privatekey `id_rsa`.
+Make sure you can connect to the server with the given key before running the container. If it asks for password, you have done something wrong.
 This is the user that runs your virtual machines (VMs).
 
 Once connected, it will launch a temporary instance of the  `vboxwebsrv` program that comes with VirtualBox.
